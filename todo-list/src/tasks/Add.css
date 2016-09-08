@@ -1,0 +1,42 @@
+.addTask {
+    width: 100%;
+    padding: 8px;
+}
+
+.addTask textarea {
+    height: 60px;
+    font-size: 12px;
+    width: 100%;
+    margin: 0;
+    padding: 4px 8px;
+    border-radius: 8px;
+    resize: none;
+}
+
+.addTask textarea:active,
+.addTask textarea:focus {
+    outline: none;
+    border: 1px solid #2196F3;
+}
+
+.addTask div.controls {
+    text-align: right;
+}
+
+.addTask div.controls button {
+    border: 1px solid #2196F3;
+    padding: 4px 8px;
+    background: #2196F3;
+    font-size: 14px;
+    border-radius: 8px;
+    color: white;
+}
+
+
+.addTask div.controls button:focus,
+.addTask div.controls button:hover,
+.addTask div.controls button:active {
+    outline: none;
+    background: #42A5F5;
+    cursor: pointer;
+}
