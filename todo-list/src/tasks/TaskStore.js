@@ -19,6 +19,16 @@ class TaskStore {
         EventEmitter.publish("TASKS_ADDED");
     }
 
+    markAsDone(id) {
+        this.tasks = this.tasks.map(t => {
+            if(t.id === id) {
+                t.isDone = true;
+            }
+            return t;
+        });
+        EventEmitter.publish("TASKS_ADDED");
+    }
+
 }
 
 export default new TaskStore();
