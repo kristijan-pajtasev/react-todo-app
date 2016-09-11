@@ -9,12 +9,22 @@ class Task extends Component {
 
     }
 
+    getAction(task) {
+        if(task.isDone) {
+            return <span>This is done</span>;
+        } else {
+            return (<button onClick={this.markAsDone.bind(this, this.props.task.id)}>
+                        Mark as done
+                    </button>)
+        }
+    }
+
     render() {
         return (<li className="task">
             {this.props.task.task}
-            <span onClick={this.markAsDone.bind(this, this.props.task.id)}>Mark as done
-                {(() => { if(this.props.task.isDone) { return " this is done" } else { return "" } })()}
-            </span>
+
+            {this.getAction(this.props.task)}
+
         </li>);
     }
 }

@@ -3,5 +3,13 @@
     padding: 4px;
     margin: 0 0 8px 0;
     border-bottom: thin solid #2196F3;
+}
 
+.task>button {
+    float: right;
+    cursor: pointer;
+}
+
+.task>span {
+    float: right;
 }

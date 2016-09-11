@@ -34,13 +34,13 @@ app.post("/task/:id/done", function(req, res) {
     res.header("Access-Control-Allow-Methods", "POST,GET,PUT,DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    //var task = JSON.parse(req.body.data);
-    //task.id = id;
-    //task.isDone = false;
-    //id++;
-
-    //tasks.push(task);
-    console.log("hello request")
+    var id = JSON.parse(req.body.data).id;
+    tasks = tasks.map(t => {
+        if(t.id == id) {
+            t.isDone = true;
+        }
+        return t;
+    });
     res.json("response");
 });
 
