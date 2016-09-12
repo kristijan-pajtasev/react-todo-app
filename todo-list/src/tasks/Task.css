@@ -8,8 +8,20 @@
 .task>button {
     float: right;
     cursor: pointer;
+    border: thin solid #2196F3;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: white;
+    background: #2196F3;
 }
 
-.task>span {
-    float: right;
+.task>button:focus,
+.task>button:active {
+    outline: none;
+}
+
+.task>span.done {
+    text-decoration: line-through;
+
 }

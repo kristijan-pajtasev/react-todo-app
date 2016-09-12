@@ -27,9 +27,19 @@ class Task extends Component {
         }
     }
 
+    getClassName(task) {
+        if(task.isDone) {
+            return "done";
+        } else {
+            return "";
+        }
+    }
+
     render() {
         return (<li className="task">
-            {this.props.task.task}
+            <span className={this.getClassName(this.props.task)}>
+                {this.props.task.task}
+            </span>
 
             {this.getAction(this.props.task)}
 
