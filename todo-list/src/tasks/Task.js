@@ -9,13 +9,21 @@ class Task extends Component {
 
     }
 
+    reopen(id) {
+        console.log("mark as done: " + id)
+        TaskActions.reopen(id);
+
+    }
+
     getAction(task) {
         if(task.isDone) {
-            return <span>This is done</span>;
+            return (<button onClick={this.reopen.bind(this, this.props.task.id)}>
+                Reopen
+            </button>);
         } else {
             return (<button onClick={this.markAsDone.bind(this, this.props.task.id)}>
                         Mark as done
-                    </button>)
+                    </button>);
         }
     }
 

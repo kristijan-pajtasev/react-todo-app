@@ -19,10 +19,10 @@ class TaskStore {
         EventEmitter.publish("TASKS_ADDED");
     }
 
-    markAsDone(id) {
+    setStatus(data) {
         this.tasks = this.tasks.map(t => {
-            if(t.id === id) {
-                t.isDone = true;
+            if(t.id === data.id) {
+                t.isDone = data.isDone;
             }
             return t;
         });

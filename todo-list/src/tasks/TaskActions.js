@@ -29,16 +29,24 @@ class TaskActions {
     }
 
     markAsDone(id) {
-        console.log(`mark as done ${id}`);
-        fetch(`http://127.0.0.1:3001/task/${id}/done`, {
+        this.setStatus({ id: id, isDone: true });
+    }
+
+    reopen(id) {
+        this.setStatus({ id: id, isDone: false });
+    }
+
+    setStatus(data) {
+        console.log(`mark as done ${data.id}`);
+        fetch(`http://127.0.0.1:3001/task/${data.id}/done`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: "data=" + JSON.stringify({ id: id })
+            body: "data=" + JSON.stringify(data)
         }).then((response) => {
             console.log("response done");
-            TaskStore.markAsDone(id);
+            TaskStore.setStatus(data);
             //response.json().then((json) => {
             //    TaskStore.addAll(json)
             //})

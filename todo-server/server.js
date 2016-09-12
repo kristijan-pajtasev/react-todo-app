@@ -34,10 +34,10 @@ app.post("/task/:id/done", function(req, res) {
     res.header("Access-Control-Allow-Methods", "POST,GET,PUT,DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    var id = JSON.parse(req.body.data).id;
+    var taskData = JSON.parse(req.body.data);
     tasks = tasks.map(t => {
-        if(t.id == id) {
-            t.isDone = true;
+        if(t.id == taskData.id) {
+            t.isDone = taskData.isDone;
         }
         return t;
     });
