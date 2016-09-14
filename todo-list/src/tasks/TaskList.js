@@ -12,7 +12,7 @@ class TaskList extends Component {
     };
 
     getTasks = (_this) => {
-        var tasks = TaskStore.get();
+        let tasks = TaskStore.get();
         this.setState({tasks: tasks})
     };
 
@@ -24,10 +24,35 @@ class TaskList extends Component {
         TaskActions.getTasks();
     };
 
+    filterByStatus = (status) => {
+        let tasks = [];
+        switch(status) {
+            case "":
+                tasks = TaskStore.getAll();
+                break;
+            case "DONE":
+                tasks = TaskStore.getDone();
+                break;
+            case "NOT_DONE":
+                tasks = TaskStore.getNotDone();
+                break;
+            default:
+                break;
+        }
+        this.setState({tasks: tasks});
+    };
+
     render() {
-        return <ul className="taskList">
-                {this.state.tasks.map((t, i) => <Task key={i} task={t} />)}
-            </ul>;
+        return <div>
+                    <div className="taskListFilter">
+                        <button onClick={this.filterByStatus.bind(this, "")}>All</button>
+                        <button onClick={this.filterByStatus.bind(this, "DONE")}>Done</button>
+                        <button onClick={this.filterByStatus.bind(this, "NOT_DONE")}>Not done</button>
+                    </div>
+                    <ul className="taskList">
+                    {this.state.tasks.map((t, i) => <Task key={i} task={t} />)}
+                </ul>
+            </div>;
     };
 }
 

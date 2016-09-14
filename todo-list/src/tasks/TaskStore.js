@@ -29,6 +29,13 @@ class TaskStore {
         EventEmitter.publish("TASKS_ADDED");
     }
 
+    getDone() {
+        return this.tasks.filter( task => task.isDone );
+    }
+
+    getNotDone() {
+        return this.tasks.filter( task => !task.isDone );
+    }
 }
 
 export default new TaskStore();
