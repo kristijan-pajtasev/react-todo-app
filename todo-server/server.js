@@ -41,7 +41,17 @@ app.post("/task/:id/done", function(req, res) {
         }
         return t;
     });
-    res.json("response");
+    res.send("OK");
+});
+
+app.post("/task/:id/delete", function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "POST,GET,PUT,DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    var id = req.params.id;
+    tasks = tasks.filter(task => task.id != id);
+    res.send("OK");
 });
 
 app.listen(3001);

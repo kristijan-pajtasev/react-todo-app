@@ -35,6 +35,10 @@ class Task extends Component {
         }
     }
 
+    deleteTask(id) {
+        TaskActions.deleteTask(id);
+    }
+
     render() {
         return (<li className="task">
             <span className={this.getClassName(this.props.task)}>
@@ -42,6 +46,7 @@ class Task extends Component {
             </span>
 
             {this.getAction(this.props.task)}
+            <button onClick={this.deleteTask.bind(this, this.props.task.id)}>Delete</button>
 
         </li>);
     }

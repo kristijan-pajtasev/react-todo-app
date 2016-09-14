@@ -13,6 +13,7 @@ class TaskActions {
             })
 
     }
+
     addTask(task) {
         fetch("http://127.0.0.1:3001/task", {
             method: "POST",
@@ -21,9 +22,11 @@ class TaskActions {
             },
             body: "data=" + JSON.stringify(task)
         }).then((response) => {
-            response.json().then((json) => {
-                TaskStore.addAll(json)
-            })
+            if(response.status === 200) {
+                response.json().then((json) => {
+                    TaskStore.addAll(json)
+                })
+            }
         });
 
     }
@@ -37,7 +40,6 @@ class TaskActions {
     }
 
     setStatus(data) {
-        console.log(`mark as done ${data.id}`);
         fetch(`http://127.0.0.1:3001/task/${data.id}/done`, {
             method: "POST",
             headers: {
@@ -45,11 +47,22 @@ class TaskActions {
             },
             body: "data=" + JSON.stringify(data)
         }).then((response) => {
-            console.log("response done");
-            TaskStore.setStatus(data);
-            //response.json().then((json) => {
-            //    TaskStore.addAll(json)
-            //})
+            if(response.status === 200) {
+                TaskStore.setStatus(data);
+            }
+        });
+    }
+
+    deleteTask(id) {
+        fetch(`http://127.0.0.1:3001/task/${id}/delete`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then((response) => {
+            if(response.status === 200) {
+                TaskStore.deleteTask(id);
+            }
         });
     }
 }

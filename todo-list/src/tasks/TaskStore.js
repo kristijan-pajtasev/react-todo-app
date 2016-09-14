@@ -36,6 +36,11 @@ class TaskStore {
     getNotDone() {
         return this.tasks.filter( task => !task.isDone );
     }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        EventEmitter.publish("TASKS_ADDED");
+    }
 }
 
 export default new TaskStore();
