@@ -7,13 +7,10 @@
 
 .task>button {
     float: right;
-    cursor: pointer;
-    border: thin solid #2196F3;
-    border-radius: 8px;
-    padding: 4px 8px;
-    font-size: 10px;
-    color: white;
-    background: #2196F3;
+}
+
+.task>button:not(:first-of-type) {
+    margin-right: 4px;
 }
 
 .task>button:focus,

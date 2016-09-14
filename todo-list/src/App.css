@@ -1,24 +1,22 @@
-/*.App {*/
-  /*text-align: center;*/
-/*}*/
+.btn {
+    cursor: pointer;
+    border: thin solid #ccc;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: white;
+    background: #ccc;
+}
 
-/*.App-logo {*/
-  /*animation: App-logo-spin infinite 20s linear;*/
-  /*height: 80px;*/
-/*}*/
+.btn.btn-primary {
+    border-color: #2196F3;
+    background: #2196F3;
+}
 
-/*.App-header {*/
-  /*background-color: #222;*/
-  /*height: 150px;*/
-  /*padding: 20px;*/
-  /*color: white;*/
-/*}*/
-
-/*.App-intro {*/
-  /*font-size: large;*/
-/*}*/
-
-/*@keyframes App-logo-spin {*/
-  /*from { transform: rotate(0deg); }*/
-  /*to { transform: rotate(360deg); }*/
-/*}*/
+.btn.btn-primary:focus,
+.btn.btn-primary:hover,
+.btn.btn-primary:active {
+    outline: none;
+    background: #42A5F5;
+    cursor: pointer;
+}

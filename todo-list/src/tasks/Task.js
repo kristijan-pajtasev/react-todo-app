@@ -17,11 +17,11 @@ class Task extends Component {
 
     getAction(task) {
         if(task.isDone) {
-            return (<button onClick={this.reopen.bind(this, this.props.task.id)}>
+            return (<button className="btn btn-primary" onClick={this.reopen.bind(this, this.props.task.id)}>
                 Reopen
             </button>);
         } else {
-            return (<button onClick={this.markAsDone.bind(this, this.props.task.id)}>
+            return (<button className="btn btn-primary" onClick={this.markAsDone.bind(this, this.props.task.id)}>
                         Mark as done
                     </button>);
         }
@@ -46,7 +46,7 @@ class Task extends Component {
             </span>
 
             {this.getAction(this.props.task)}
-            <button onClick={this.deleteTask.bind(this, this.props.task.id)}>Delete</button>
+            <button className="btn btn-primary" onClick={this.deleteTask.bind(this, this.props.task.id)}>Delete</button>
 
         </li>);
     }
