@@ -26,7 +26,7 @@ class AddTask extends Component {
                 <form>
                     <textarea onChange={this.handleChange.bind(this)} value={this.state.task}></textarea>
                     <div className="controls">
-                        <button onClick={this.addTask.bind(this)}>Add task</button>
+                        <button className="btn btn-primary" onClick={this.addTask.bind(this)}>Add task</button>
                     </div>
                 </form>
             </div>
