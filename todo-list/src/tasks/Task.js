@@ -4,7 +4,6 @@ import "./Task.css";
 
 class Task extends Component {
     markAsDone(id) {
-        console.log("mark as done: " + id)
         TaskActions.markAsDone(id);
 
     }
