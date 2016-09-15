@@ -8,7 +8,7 @@ import "./TaskList.css";
 class TaskList extends Component {
     constructor() {
         super();
-        this.state = { tasks: [] };
+        this.state = { tasks: [], filter: "" };
     };
 
     getTasks = (_this) => {
@@ -39,15 +39,19 @@ class TaskList extends Component {
             default:
                 break;
         }
-        this.setState({tasks: tasks});
+        this.setState({tasks: tasks, filter: status});
     };
+
+    getClass(filter) {
+        return "btn btn-primary " + (this.state.filter === filter ? "active" : "");
+    }
 
     render() {
         return <div>
                     <div className="taskListFilter btn-group">
-                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "")}>All</button>
-                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "DONE")}>Done</button>
-                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "NOT_DONE")}>Not done</button>
+                        <button className={this.getClass("")} onClick={this.filterByStatus.bind(this, "")}>All</button>
+                        <button className={this.getClass("DONE")} onClick={this.filterByStatus.bind(this, "DONE")}>Done</button>
+                        <button className={this.getClass("NOT_DONE")} onClick={this.filterByStatus.bind(this, "NOT_DONE")}>Not done</button>
                     </div>
                     <ul className="taskList">
                     {this.state.tasks.map((t, i) => <Task key={i} task={t} />)}
