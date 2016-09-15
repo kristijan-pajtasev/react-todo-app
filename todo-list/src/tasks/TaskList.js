@@ -44,10 +44,10 @@ class TaskList extends Component {
 
     render() {
         return <div>
-                    <div className="taskListFilter">
-                        <button onClick={this.filterByStatus.bind(this, "")}>All</button>
-                        <button onClick={this.filterByStatus.bind(this, "DONE")}>Done</button>
-                        <button onClick={this.filterByStatus.bind(this, "NOT_DONE")}>Not done</button>
+                    <div className="taskListFilter btn-group">
+                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "")}>All</button>
+                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "DONE")}>Done</button>
+                        <button className="btn btn-primary" onClick={this.filterByStatus.bind(this, "NOT_DONE")}>Not done</button>
                     </div>
                     <ul className="taskList">
                     {this.state.tasks.map((t, i) => <Task key={i} task={t} />)}

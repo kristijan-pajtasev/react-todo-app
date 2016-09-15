@@ -20,3 +20,28 @@
     background: #42A5F5;
     cursor: pointer;
 }
+
+.btn-group>.btn:not(:first-of-type):not(:last-of-type) {
+    border-radius: 0;
+    border-left: thin solid white;
+}
+
+.btn-group>.btn:last-of-type {
+    border-left: thin solid white;
+}
+
+.btn-group>.btn:first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group>.btn:last-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group>.btn.active {
+    background: white;
+    border: 1px solid #42A5F5;
+    color: #42A5F5;
+}
