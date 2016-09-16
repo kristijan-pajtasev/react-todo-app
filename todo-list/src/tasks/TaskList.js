@@ -11,11 +11,6 @@ class TaskList extends Component {
         this.state = { tasks: [], filter: "" };
     };
 
-    getTasks = (_this) => {
-        let tasks = TaskStore.get();
-        this.setState({tasks: tasks})
-    };
-
     componentDidMount() {
         EventEmitter.subscribe("TASKS_ADDED", () => {
             var tasks = TaskStore.getAll();
